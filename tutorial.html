@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Noto+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#17cf54",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#112116",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Noto Serif', serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-primary/20">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <div class="text-primary flex size-10 items-center justify-center">
+                    <span class="material-symbols-outlined text-3xl">house</span>
+                </div>
+                <h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold tracking-tight">
+                    The Last Cat's Life
+                </h2>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="index.html">Inicio</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="books.html">Books</a>
+                <a class="text-primary font-bold border-b-2 border-primary pb-1" href="descuento.html">Descuento</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="tutorial.html">Tutorial</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="faq.html">FAQ</a>
+            </nav>
+
+            <!-- Icons -->
+            <div class="flex items-center gap-4">
+                <button class="p-2 text-slate-600 dark:text-slate-400 hover:text-primary">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+                <button id="menuBtn" class="md:hidden p-2 text-slate-600 dark:text-slate-400">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden px-6 pb-4">
+            <div class="flex flex-col gap-4">
+                <a href="index.html" class="hover:text-primary">Inicio</a>
+                <a href="books.html" class="hover:text-primary">Books</a>
+                <a href="descuento.html" class="hover:text-primary">Descuento</a>
+                <a href="tutorial.html" class="hover:text-primary">Tutorial</a>
+                <a href="faq.html" class="hover:text-primary">FAQ</a>
+            </div>
+        </div>
+    </header>
+<!-- Main Content -->
+    <main class="flex-1 max-w-screen-xl w-full mx-auto">
+        <!-- Hero Section -->
+        <section class="relative h-64 w-full overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent z-10"></div>
+            <div class="absolute inset-0 bg-cover bg-center" data-alt="Atmospheric vintage library with old books and botanical plants" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDB7uIdBiDQmuSzWDZvo3WhL70LDn-bMd7LwX4_bJgTdPxa7ZXYu7e0RtT9mAMDm6d2jp8fmsa82xE2lw7dFcJy0WuCMkevtqyuUJ0K6-e89lQak5uRkQst7Z7M_vwGUYMi-bOW8K76-hjFl-lW9m0yvZpJsjnU0qepfWjrIFE6exWUayyqJBpHCqE72p3LxXhRqR_LT9R0te4jN3MyPlrcvHGE23GMbZKa56jdY5fa5PZZmmqqNtnUAHxud5m72POGSjOiVaXq4vs');"></div>
+            <div class="relative z-20 h-full flex flex-col justify-end p-6">
+                <h2 class="text-3xl font-bold text-white leading-tight">TUTORIAL DE NAVEGACIÓN</h2>
+                <p class="text-primary font-medium mt-2">Descubre el arte de encontrar tu próxima lectura</p>
+            </div>
+        </section>
+        <!-- Tutorial Path -->
+        <section class="px-6 py-10 bg-background-dark">
+            <div class="max-w-2xl mx-auto relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-5 top-0 bottom-0 w-px bg-primary/30"></div>
+                <!-- Step 1 -->
+                <div class="relative flex gap-6 mb-12 group">
+                    <div class="z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-background-dark shadow-[0_0_15px_rgba(23,207,84,0.4)]">
+                        <span class="material-symbols-outlined font-bold">search</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h3 class="text-xl font-display font-bold text-primary mb-2">1. Explora el catálogo</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Sumérgete en nuestras estanterías digitales divididas por géneros y estéticas botánicas.</p>
+                        <div class="rounded-xl overflow-hidden border border-primary/20 aspect-video w-full">
+                            <img class="w-full h-full object-cover" data-alt="Sketch of a rare book with a pressed flower" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP976yJwDdkz5pE5jYuDX3zMMRu1Yl1gTI0PYJcN437MyVa05E5x9PvJeJqfD7cIg7RscKcUcMgcGMjSWbpqtiybD0GadeZSlHP6hf5Aff-dUamvBUHQJLcBBdhl55izC9dJNTC2Jzdsf8Oh1XVXyDzy_jay-Jw2nb0gVgWi4peSxy3omWOPMPEViP2yv-xQvRVjLpUZGead4FtgXLw95W0NinIMmfqSyuw1PEZmcSuZ7lT7tbLtd0GQcFIe_Dij_zyeTmcEAPgfY" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="relative flex gap-6 mb-12 group">
+                    <div class="z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-background-dark shadow-[0_0_15px_rgba(23,207,84,0.4)]">
+                        <span class="material-symbols-outlined font-bold">auto_stories</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h3 class="text-xl font-display font-bold text-primary mb-2">2. Selecciona tu ejemplar</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Cada libro incluye una reseña detallada y notas de cata literaria. Añade tus favoritos a la bolsa.</p>
+                        <div class="rounded-xl overflow-hidden border border-primary/20 aspect-video w-full">
+                            <img class="w-full h-full object-cover" data-alt="Botanical sketch of a fern leaf between book pages" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKqhke4RPUn-3fGSmi0_Y6m8uSY4t3dWg7o_9gbOakrFqkNQncpBWVFxb0fzhT3FuSqlfMiek_dJHeBZokSxWPuQj8ohZ-naTiN5K2GUSt0QjnNV5eVls9LzemEP5Br-9d27ZrGwiCk2c4Pbzr3CZxPgRJ_BaSX-YizurA5XiMoGRjQzMv1bTiD9HWT4oROZY1_Nt4MzusXd-jEZxVhHv8JeSqmYR3ZFcpVaFL3OWgrbdNWniEvbhkMfwKtMUci0fjUhKG-U88C4M" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="relative flex gap-6 mb-12 group">
+                    <div class="z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-background-dark shadow-[0_0_15px_rgba(23,207,84,0.4)]">
+                        <span class="material-symbols-outlined font-bold">payments</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h3 class="text-xl font-display font-bold text-primary mb-2">3. Finaliza tu compra</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Proceso de pago seguro. Empaquetamos cada libro con papel reciclado y sellos de cera.</p>
+                        <div class="rounded-xl overflow-hidden border border-primary/20 aspect-video w-full">
+                            <img class="w-full h-full object-cover" data-alt="Ink drawing of an old wooden shipping crate with leaves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNUvx-ErmbEprOhkJoS6KQ71Hn1gZcfAPTFh543PWn_VcPh6ztfRgwidCj3l9Gm4ftjJm2MEqEojw529yyewW8FuSIDHP8ywZxZGW-_9g3Qbb4ZbYztdrxmLtQfKZEFFPzjRLrL5A9P-oywzfnPymu5zjq3njjFp6QNPb-qiWpoxU7Lb6Gyjb5ChT1uAhAsdD78OY5WYvxiaZmaraq2yulPM-81WoX6FCF9WZm8RWfqYfxBza6mMvQIQcsa5ShtBZUV6bpQgmKwpo" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- History & Values Section -->
+        <section class="px-6 py-12 bg-background-light dark:bg-slate-900/50 border-y border-primary/10">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-2xl font-display font-bold text-primary mb-6">Nuestra Esencia</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-primary font-bold uppercase tracking-widest text-xs mb-2">Historia</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed italic">"The Last Cat's Life" nació en un rincón olvidado de una vieja biblioteca en 1992, rescatando el valor de lo táctil y lo eterno en la era digital.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-lg bg-primary/5 border border-primary/20">
+                            <span class="material-symbols-outlined text-primary mb-2">eco</span>
+                            <p class="text-xs font-bold text-slate-200 uppercase">Sostenibilidad</p>
+                            <p class="text-[10px] text-slate-500 mt-1">Materiales 100% orgánicos.</p>
+                        </div>
+                        <div class="p-4 rounded-lg bg-primary/5 border border-primary/20">
+                            <span class="material-symbols-outlined text-primary mb-2">history_edu</span>
+                            <p class="text-xs font-bold text-slate-200 uppercase">Curaduría</p>
+                            <p class="text-[10px] text-slate-500 mt-1">Selección artesanal de títulos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact / Footer Info -->
+        <footer class="px-6 py-8 text-center text-slate-500 text-xs pb-24">
+            <p class="mb-2">¿Necesitas ayuda con tu pedido?</p>
+            <a class="text-primary font-bold" href="mailto:hola@thelastcat.com">hola@thelastcat.com</a>
+            <div class="mt-8 opacity-30 grayscale flex justify-center gap-4">
+                <span class="material-symbols-outlined">nature</span>
+                <span class="material-symbols-outlined">pets</span>
+                <span class="material-symbols-outlined">ink_pen</span>
+            </div>
+        </footer>
+    </main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-background-light dark:bg-background-dark/90 backdrop-blur-xl border-t border-primary/20 pb-safe">
+<div class="flex max-w-screen-xl h-16 items-center justify-around px-4">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined text-2xl">search</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined text-2xl">book_2</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined text-2xl">person</span>
+</a>
+</div>
+</nav>
+</body></html>

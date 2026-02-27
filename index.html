@@ -1,0 +1,185 @@
+<html class="dark"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#17cf54",
+            "background-light": "#f6f8f6",
+            "background-dark": "#112116",
+          },
+          fontFamily: {
+            "display": ["Noto Serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex items-center bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm p-4 border-b border-primary/20 justify-between">
+<div class="flex items-center gap-2">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-3xl">house</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">The Last Cat's Life</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+    <a class="text-primary font-bold border-b-2 border-primary pb-1" href="index.html">Inicio</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="books.html">Books</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="descuento.html">Descuento</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="tutorial.html">Tutorial</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="faq.html">FAQ</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-600 dark:text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="md:hidden p-2 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<main class="flex-1">
+<div class="@container">
+<div class="p-0 sm:p-4 lg:p-8">
+<div class="relative flex min-h-[70vh] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-none sm:rounded-xl items-center justify-center p-6 text-center shadow-2xl overflow-hidden" data-alt="Cozy dark library with wooden shelves and ivy" style='background-image: linear-gradient(rgba(17, 33, 22, 0.7) 0%, rgba(17, 33, 22, 0.9) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD7rSH9BlAukd8hz60pQorLtnUu9zHCEQXJ3FbXMWCJU-bPsLDR5hUoDaJyEGC5H20gmzJu6DN0lcWqWYVMjfgzY1Sn2JlQuPS4aXM13mVbGzReiIDA5Vpn-pHM35Nw2SLUmLzuf_1niayOka7v4iK0HbrsF9Q3b1l4K0Jgs0tzSSsod-YXbZzUz2h48cv9my-tBPwltub_p4vH4bvyLRRy6mK3Evx9Lp_uab10QrtQX1VojYvIdvQe1F95Jls12mVLmmwsaoZQG28");'>
+<div class="max-w-3xl flex flex-col gap-4">
+<h1 class="text-slate-100 text-5xl md:text-7xl font-black leading-tight tracking-tighter">
+                The Last Cat's Life
+              </h1>
+<p class="text-slate-300 text-lg md:text-xl font-normal leading-relaxed italic">
+                A vintage library for curious feline souls. Explore our collection of tales, whispered secrets, and the untamed nature of books.
+              </p>
+</div>
+<div class="flex flex-wrap justify-center gap-4 mt-4">
+<button onclick="window.location.href='books.html'">
+  Explore Books
+</button>
+<button onclick="window.location.href='about.html'">
+  Our Story
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- How to Navigate Section -->
+<section class="max-w-7xl mx-auto px-4 py-12 md:py-20">
+<div class="flex flex-col items-center mb-12">
+<h2 class="text-slate-900 dark:text-slate-100 text-3xl md:text-4xl font-bold leading-tight text-center">How to Navigate</h2>
+<div class="h-1 w-20 bg-primary mt-4 rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+<!-- Card 1 -->
+<div class="flex flex-col gap-4 rounded-xl border border-primary/20 bg-primary/5 dark:bg-primary/10 p-8 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all group">
+<div class="bg-primary/20 w-12 h-12 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">menu_book</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Browse Collection</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                Step into our curated selection of vintage literature and modern feline tales.
+              </p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-4 rounded-xl border border-primary/20 bg-primary/5 dark:bg-primary/10 p-8 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all group">
+<div class="bg-primary/20 w-12 h-12 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">explore</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Tutorial Guide</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                New to the library? Let us show you how to uncover hidden gems in our archives.
+              </p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col gap-4 rounded-xl border border-primary/20 bg-primary/5 dark:bg-primary/10 p-8 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all group">
+<div class="bg-primary/20 w-12 h-12 rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">mail</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Contact Us</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                The keepers of the library are always ready to assist with your literary quest.
+              </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-light dark:bg-background-dark border-t border-primary/10 py-12 px-4 mt-auto">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">house</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold">The Last Cat's Life</h2>
+</div>
+<p class="text-slate-600 dark:text-slate-400 max-w-md leading-relaxed">
+            Preserving the stories that whisper through the ivy-covered shelves. A sanctuary for readers who seek the quiet charm of a vintage world.
+          </p>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-slate-100 font-bold mb-6">Quick Links</h4>
+<ul class="flex flex-col gap-3 text-slate-600 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Catalog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Gift Cards</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-slate-100 font-bold mb-6">Connect</h4>
+<ul class="flex flex-col gap-3 text-slate-600 dark:text-slate-400">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">location_on</span>
+<span>123 Ivy Lane, Whisker Wood</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">mail</span>
+<span>hello@lastcatlife.com</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">call</span>
+<span>+1 (555) CAT-LIFE</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-500 text-sm">© 2024 The Last Cat's Life. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-primary" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-slate-500 hover:text-primary" href="#"><span class="material-symbols-outlined">rss_feed</span></a>
+</div>
+</div>
+</footer>
+</div>
+<script>
+  const menuButton = document.querySelector('.md\\:hidden');
+  const nav = document.querySelector('nav');
+
+  menuButton.addEventListener('click', () => {
+    nav.classList.toggle('hidden');
+  });
+</script>
+</body></html>

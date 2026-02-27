@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#17cf54",
+          "background-light": "#f6f8f6",
+          "background-dark": "#112116",
+        },
+        fontFamily: {
+          "display": ["Noto Serif", "serif"],
+          "sans": ["Noto Sans", "sans-serif"]
+        },
+        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+  body { font-family: 'Noto Sans', sans-serif; min-height: 100dvh; }
+  h1, h2, h3, h4 { font-family: 'Noto Serif', serif; }
+  .book-card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .book-card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(23,207,84,0.15); }
+  .filter-btn { transition: all 0.2s ease; }
+  .filter-btn.active { background-color: #17cf54; color: #112116; border-color: #17cf54; }
+  .book-item { animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+
+<header class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-primary/20">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="text-primary flex size-10 items-center justify-center">
+        <span class="material-symbols-outlined text-3xl">house</span>
+      </div>
+      <h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold tracking-tight">The Last Cat's Life</h2>
+    </div>
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="index.html">Inicio</a>
+      <a class="text-primary font-bold border-b-2 border-primary pb-1" href="books.html">Books</a>
+      <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="descuento.html">Descuento</a>
+      <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="tutorial.html">Tutorial</a>
+      <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="faq.html">FAQ</a>
+    </nav>
+    <button class="p-2 text-slate-600 dark:text-slate-400 hover:text-primary">
+      <span class="material-symbols-outlined">search</span>
+    </button>
+  </div>
+</header>
+
+<section class="relative h-52 w-full overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent z-10"></div>
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1400&q=80');"></div>
+  <div class="relative z-20 h-full flex flex-col justify-end p-6 max-w-7xl mx-auto w-full">
+    <h2 class="text-3xl font-bold text-white">CATALOGO DE LIBROS</h2>
+    <p class="text-primary font-medium mt-1">Explora nuestra coleccion curada</p>
+  </div>
+</section>
+
+<main class="flex-1 max-w-7xl mx-auto w-full px-6 py-10 pb-28">
+
+  <div class="mb-8">
+    <h3 class="text-xs uppercase tracking-widest text-slate-500 mb-3 font-bold">Filtrar por genero</h3>
+    <div class="flex flex-wrap gap-2" id="filterContainer">
+      <button class="filter-btn active px-4 py-2 rounded-full border text-xs font-bold uppercase tracking-wider" data-genre="all">Todos</button>
+      <button class="filter-btn px-4 py-2 rounded-full border border-slate-600 text-slate-400 text-xs font-bold uppercase tracking-wider hover:border-primary hover:text-primary" data-genre="Mystery">Mystery</button>
+      <button class="filter-btn px-4 py-2 rounded-full border border-slate-600 text-slate-400 text-xs font-bold uppercase tracking-wider hover:border-primary hover:text-primary" data-genre="Fiction">Fiction</button>
+      <button class="filter-btn px-4 py-2 rounded-full border border-slate-600 text-slate-400 text-xs font-bold uppercase tracking-wider hover:border-primary hover:text-primary" data-genre="Fantasy">Fantasy</button>
+      <button class="filter-btn px-4 py-2 rounded-full border border-slate-600 text-slate-400 text-xs font-bold uppercase tracking-wider hover:border-primary hover:text-primary" data-genre="Horror">Horror</button>
+      <button class="filter-btn px-4 py-2 rounded-full border border-slate-600 text-slate-400 text-xs font-bold uppercase tracking-wider hover:border-primary hover:text-primary" data-genre="Romance">Romance</button>
+    </div>
+  </div>
+
+  <p class="text-xs text-slate-500 mb-6" id="resultsCount"></p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="booksGrid"></div>
+  <div class="mt-14 flex justify-center gap-2" id="pagination"></div>
+
+</main>
+
+<a class="fixed bottom-8 left-8 w-14 h-14 bg-primary flex items-center justify-center rounded-full shadow-lg shadow-primary/40 hover:scale-110 transition-transform z-40 text-background-dark" href="index.html">
+  <span class="material-symbols-outlined">home</span>
+</a>
+
+<script>
+const BOOKS_PER_PAGE = 4;
+
+const allBooks = [
+  { id:1,  title:"The Whispering Willow",    quote:"In every shadow, a cat finds its kingdom. In every leaf, a story of old.",                     genre:"Mystery", price:"$24.99", img:"https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=600&q=80" },
+  { id:2,  title:"Feline Mysteries",          quote:"The night has eyes, and they reflect the moon in ways humans will never grasp.",                genre:"Mystery", price:"$18.50", img:"https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&q=80" },
+  { id:3,  title:"The Alchemist's Familiar",  quote:"Nine lives are but a blink when you are chasing the secrets of the stars.",                    genre:"Fiction",  price:"$32.00", img:"https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=600&q=80" },
+  { id:4,  title:"Midnight Prowl",            quote:"To walk unseen is the greatest art, to be loved while wild is the greatest gift.",             genre:"Horror",   price:"$12.99", img:"https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=600&q=80" },
+  { id:5,  title:"The Verdant Grimoire",      quote:"Every moss-covered stone hides a spell; every root holds a memory.",                           genre:"Fantasy",  price:"$28.00", img:"https://images.unsplash.com/photo-1474932430478-367dbb6832c1?w=600&q=80" },
+  { id:6,  title:"Shadow's Grace",            quote:"Silence is the cat's most lethal weapon and most beautiful poem.",                              genre:"Fiction",  price:"$21.00", img:"https://images.unsplash.com/photo-1500099817043-86d46000d58f?w=600&q=80" },
+  { id:7,  title:"Phantom Purrs",             quote:"They say ghosts are just cats that forgot to leave.",                                           genre:"Horror",   price:"$22.50", img:"https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?w=600&q=80" },
+  { id:8,  title:"The Botanist's Secret",     quote:"She pressed flowers between pages and hid truths in petal ink.",                               genre:"Mystery", price:"$17.99", img:"https://images.unsplash.com/photo-1560807707-8cc77767d783?w=600&q=80" },
+  { id:9,  title:"Velvet Dusk",               quote:"Love like a cat: independent, warm, and utterly unpredictable.",                               genre:"Romance",  price:"$14.50", img:"https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=600&q=80" },
+  { id:10, title:"The Obsidian Chronicle",    quote:"In the darkest chapter, the smallest creature carries the brightest flame.",                   genre:"Fantasy",  price:"$33.00", img:"https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&q=80" },
+  { id:11, title:"The Hollow Hours",          quote:"Time drips through an old house like rain through forgotten ceilings.",                        genre:"Horror",   price:"$20.00", img:"https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=600&q=80" },
+  { id:12, title:"Tender Thorns",             quote:"Even roses guard their softness with sharp devotion.",                                          genre:"Romance",  price:"$13.99", img:"https://images.unsplash.com/photo-1529154691717-3306083d869e?w=600&q=80" },
+  { id:13, title:"The Silver Meridian",       quote:"Between two worlds lies a territory that only cats can map.",                                   genre:"Fiction",  price:"$29.50", img:"https://images.unsplash.com/photo-1491841573634-28140fc7ced7?w=600&q=80" },
+  { id:14, title:"The Amber Court",           quote:"Magic is just science that remembers what science has tried to forget.",                        genre:"Fantasy",  price:"$31.00", img:"https://images.unsplash.com/photo-1600189261867-30e5ffe7b8da?w=600&q=80" },
+  { id:15, title:"Starling Letters",          quote:"She wrote love in margins and hid it in the spaces between words.",                            genre:"Romance",  price:"$18.00", img:"https://images.unsplash.com/photo-1515446134809-993c501ca304?w=600&q=80" },
+  { id:16, title:"Nine Seasons",              quote:"For a cat, every hour is a new century and every nap a small eternity.",                       genre:"Fiction",  price:"$30.00", img:"https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=600&q=80" },
+];
+
+let currentGenre = "all";
+let currentPage  = 1;
+
+function getFiltered() {
+  return currentGenre === "all" ? allBooks : allBooks.filter(b => b.genre === currentGenre);
+}
+
+function render() {
+  const filtered   = getFiltered();
+  const totalPages = Math.ceil(filtered.length / BOOKS_PER_PAGE);
+  if (currentPage > totalPages) currentPage = 1;
+
+  const slice = filtered.slice((currentPage - 1) * BOOKS_PER_PAGE, currentPage * BOOKS_PER_PAGE);
+  const grid  = document.getElementById("booksGrid");
+  grid.innerHTML = "";
+
+  if (!slice.length) {
+    grid.innerHTML = `<div class="col-span-4 text-center py-20 text-slate-500 italic">No hay libros en este genero todavia.</div>`;
+  } else {
+    slice.forEach(b => {
+      const el = document.createElement("div");
+      el.className = "book-item group flex flex-col bg-background-dark/40 rounded-xl overflow-hidden border border-white/5 book-card-hover";
+      el.innerHTML = `
+        <div class="relative aspect-[3/4] overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+               src="${b.img}" alt="${b.title}" loading="lazy"
+               onerror="this.src='https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=600&q=80'"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-70"></div>
+          <div class="absolute top-4 right-4 bg-primary text-background-dark px-3 py-1 rounded-full text-xs font-bold">${b.price}</div>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h4 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">${b.title}</h4>
+          <p class="text-xs italic text-slate-400 line-clamp-3 mb-4">"${b.quote}"</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-xs text-primary uppercase tracking-widest font-bold">${b.genre}</span>
+            <button class="flex items-center gap-1 text-xs hover:underline decoration-primary underline-offset-4">
+              Ver mas <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </div>`;
+      grid.appendChild(el);
+    });
+  }
+
+  document.getElementById("resultsCount").textContent =
+    `Mostrando ${slice.length} de ${filtered.length} libro${filtered.length !== 1 ? "s" : ""}` +
+    (currentGenre !== "all" ? ` en "${currentGenre}"` : "");
+
+  renderPagination(totalPages);
+}
+
+function renderPagination(totalPages) {
+  const c = document.getElementById("pagination");
+  c.innerHTML = "";
+  if (totalPages <= 1) return;
+
+  const mkBtn = (content, disabled, active, onClick) => {
+    const b = document.createElement("button");
+    b.className = `w-10 h-10 flex items-center justify-center rounded border text-sm font-bold transition-all
+      ${active   ? "border-primary bg-primary text-background-dark" :
+        disabled ? "border-slate-700 text-slate-600 cursor-not-allowed opacity-40" :
+                   "border-slate-700 text-slate-400 hover:border-primary hover:text-primary"}`;
+    b.innerHTML = content;
+    b.disabled = disabled;
+    if (!disabled) b.addEventListener("click", () => { onClick(); window.scrollTo({top:0,behavior:'smooth'}); });
+    return b;
+  };
+
+  c.appendChild(mkBtn('<span class="material-symbols-outlined">chevron_left</span>', currentPage===1, false,
+    () => { currentPage--; render(); }));
+
+  for (let i = 1; i <= totalPages; i++) {
+    const pg = i;
+    c.appendChild(mkBtn(String(i), false, i===currentPage,
+      () => { currentPage = pg; render(); }));
+  }
+
+  c.appendChild(mkBtn('<span class="material-symbols-outlined">chevron_right</span>', currentPage===totalPages, false,
+    () => { currentPage++; render(); }));
+}
+
+document.getElementById("filterContainer").addEventListener("click", e => {
+  const btn = e.target.closest("[data-genre]");
+  if (!btn) return;
+  currentGenre = btn.dataset.genre;
+  currentPage  = 1;
+  document.querySelectorAll(".filter-btn").forEach(b => {
+    b.classList.remove("active");
+    b.classList.add("border-slate-600", "text-slate-400");
+  });
+  btn.classList.add("active");
+  btn.classList.remove("border-slate-600", "text-slate-400");
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Noto+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#17cf54",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#112116",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Noto Serif", serif
+    }
+.parchment-glow:hover {
+    box-shadow: 0 0 15px rgba(23, 207, 84, 0.2);
+    border-color: #17cf54
+    }
+.bg-wood-pattern {
+    background-color: #112116;
+    background-image: linear-gradient(rgba(17, 33, 22, 0.95), rgba(17, 33, 22, 0.95)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuB7u3KbTKKiiFLNENWfX2SmoPCFKExHgjFD8Qhv5m3JacGT4HV7pCUp4EE_Nnot1Lp5kdDDYOkqR3za1tPZwYfuZotksh7AFAWy9DW2S_cNYcvtqqxhnr-zQTVIm4Iom3wB8o6fz3UGiOKxZLVP_SKE2NqfMF3pg7LuCnZ2pAAb0Ck4R7gh4kV_9_Howvz5znPEn9jQ7kyIlx5bYmPOxtdmbno22_uYVRI4eU9V42fNR-l3r4ix0uYZaE4OwkQc7DvFBdjVMiZCjxQ);
+    background-size: cover;
+    background-blend-mode: multiply
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Header / Nav -->
+<header class="sticky top-0 z-50 bg-background-dark/90 backdrop-blur-md border-b border-primary/20 px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">auto_stories</span>
+<span class="text-sm font-bold tracking-widest uppercase">The Last Cat's Life</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+    <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="index.html">Inicio </a>
+    <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="books.html">Books</a>
+    <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="descuento.html">Descuento</a>
+    <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="tutorial.html">Tutorial</a>
+    <a class="text-primary font-bold border-b-2 border-primary pb-1" href="faq.html">FAQ </a>
+
+</nav>
+<button class="text-slate-100 p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Hero Section -->
+<section class="relative py-12 px-6 flex flex-col items-center text-center bg-wood-pattern border-b border-primary/10" data-alt="Deep green vintage library wood panels background">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<img alt="Climbing ivy pattern" class="w-full h-full object-cover" data-alt="Climbing plants on a library wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASH167QhbGiTmmGY_9TyO0jyiIIV5u2hWVYfr5e-xuwFZ-8M8iXyBkWVrn_ZOcYQyyyq6JGDqGppV5dbxr3LII_6pusS1MyfCGo3XDe7CnBIt_OpFj-14-r5Wl0IPNmUEToqm6wCY__yNi0Rq8uzw3z2gdiqjXNzOP9BfoTjlTFngvbwvnLuq2PbgNLOJ4j8Z4mnQBmQroTZFkKrRTvPZFb4fKJbk_LZ0j39xua3jVQ1ik7jS20AefxBLfFyarSQAxPM09ouQMrro"/>
+</div>
+<h1 class="text-primary text-sm font-bold tracking-[0.3em] uppercase mb-2">Ayuda y Soporte</h1>
+<h2 class="text-4xl md:text-5xl font-bold leading-tight mb-4">PREGUNTAS FRECUENTES</h2>
+<p class="text-slate-400 max-w-md mx-auto text-sm italic">"Encuentra las respuestas que buscas entre los estantes de nuestra memoria."</p>
+</section>
+<!-- Search Bar -->
+<div class="px-4 -mt-6 relative z-10">
+<div class="flex items-center bg-background-dark border border-primary/30 rounded-xl px-4 py-3 shadow-xl">
+<span class="material-symbols-outlined text-primary mr-3">search</span>
+<input class="bg-transparent border-none text-slate-100 w-full focus:ring-0 text-sm font-sans" placeholder="Buscar en la biblioteca..." type="text"/>
+</div>
+</div>
+<!-- FAQ Accordion Blocks -->
+<main class="p-4 space-y-4 pb-24">
+<!-- Section: Pedidos -->
+<div class="mt-8 mb-4">
+<h3 class="text-primary text-xs font-bold tracking-widest uppercase flex items-center gap-2">
+<span class="h-px w-6 bg-primary/30"></span> Pedidos y Envíos
+            </h3>
+</div>
+<details class="group parchment-glow flex flex-col rounded-xl border border-primary/10 bg-primary/5 px-4 py-1 transition-all duration-300">
+<summary class="flex cursor-pointer items-center justify-between gap-4 py-4 list-none">
+<p class="text-slate-100 text-base font-medium leading-tight">¿Cómo rastrear mi pedido literario?</p>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="text-slate-400 text-sm font-sans leading-relaxed pb-4 border-t border-primary/10 pt-4">
+                Una vez que tu libro salga de nuestra biblioteca vintage, recibirás un correo con el código de seguimiento de la mensajería seleccionada. Podrás verlo en tiempo real hasta que llegue a tus manos.
+            </div>
+</details>
+<details class="group parchment-glow flex flex-col rounded-xl border border-primary/10 bg-primary/5 px-4 py-1 transition-all duration-300">
+<summary class="flex cursor-pointer items-center justify-between gap-4 py-4 list-none">
+<p class="text-slate-100 text-base font-medium leading-tight">¿Cuáles son los tiempos de envío?</p>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="text-slate-400 text-sm font-sans leading-relaxed pb-4 border-t border-primary/10 pt-4">
+                Realizamos envíos nacionales en 3 a 5 días hábiles. Para ediciones de colección o envíos internacionales, el tiempo puede extenderse hasta 15 días dependiendo del destino.
+            </div>
+</details>
+<!-- Section: Colecciones -->
+<div class="mt-10 mb-4">
+<h3 class="text-primary text-xs font-bold tracking-widest uppercase flex items-center gap-2">
+<span class="h-px w-6 bg-primary/30"></span> Libros y Ediciones
+            </h3>
+</div>
+<details class="group parchment-glow flex flex-col rounded-xl border border-primary/10 bg-primary/5 px-4 py-1 transition-all duration-300">
+<summary class="flex cursor-pointer items-center justify-between gap-4 py-4 list-none">
+<p class="text-slate-100 text-base font-medium leading-tight">¿Aceptan devoluciones de libros antiguos?</p>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="text-slate-400 text-sm font-sans leading-relaxed pb-4 border-t border-primary/10 pt-4">
+                Dada la naturaleza delicada de nuestras piezas vintage, solo aceptamos devoluciones si el ejemplar presenta daños no descritos en su ficha técnica al momento de la compra.
+            </div>
+</details>
+<details class="group parchment-glow flex flex-col rounded-xl border border-primary/10 bg-primary/5 px-4 py-1 transition-all duration-300">
+<summary class="flex cursor-pointer items-center justify-between gap-4 py-4 list-none">
+<p class="text-slate-100 text-base font-medium leading-tight">¿Tienen ediciones firmadas?</p>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="text-slate-400 text-sm font-sans leading-relaxed pb-4 border-t border-primary/10 pt-4">
+                ¡Sí! Contamos con una sección exclusiva de "Tesoros del Autor" donde listamos todas las primeras ediciones y copias firmadas disponibles actualmente en nuestro inventario.
+            </div>
+</details>
+<!-- Technical Information Footer Area -->
+<div class="mt-12 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20">
+<h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span>
+                Información Técnica
+            </h2>
+<div class="space-y-4 font-sans text-sm text-slate-300">
+<p>Nuestros servidores utilizan protocolos de encriptación de 256 bits para asegurar que cada transacción sea tan privada como una lectura a medianoche.</p>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div class="p-3 bg-background-dark/50 rounded-lg">
+<p class="text-primary font-bold mb-1">Pagos</p>
+<p class="text-xs">Aceptamos todas las tarjetas de crédito y monederos digitales.</p>
+</div>
+<div class="p-3 bg-background-dark/50 rounded-lg">
+<p class="text-primary font-bold mb-1">Soporte</p>
+<p class="text-xs">Chat en vivo disponible de Lunes a Viernes (9:00 - 18:00).</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact Section -->
+<div class="py-10 text-center space-y-4">
+<p class="text-slate-400 text-sm">¿Aún tienes dudas?</p>
+<a class="inline-flex items-center gap-2 bg-primary text-background-dark font-bold px-6 py-3 rounded-full hover:brightness-110 transition-all" href="mailto:biblioteca@thelastcat.com">
+<span class="material-symbols-outlined">mail</span>
+                Contáctanos
+            </a>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-background-dark/95 backdrop-blur-lg border-t border-primary/20 pb-safe shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
+<div class="flex items-center justify-around h-16 max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined font-fill">help</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">search</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+</a>
+</div>
+</nav>
+</body></html>
